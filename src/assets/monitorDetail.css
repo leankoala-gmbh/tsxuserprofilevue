@@ -1,0 +1,26 @@
+.monitorDetail {
+  background-color: var(--tsxup-brightest);
+  color: var(--tsxup-darkest-light);
+
+  &--darker {
+    background-color: var(--tsxup-primary-lightest);
+  }
+
+  &--hover {
+    @apply transition ease-in duration-300;
+
+  &:hover {
+    /* todo: check hover color */
+    background-color: var(--tsxup-primary-lightest);
+  }
+  }
+
+
+  a {
+    color: var(--tsxup-primary);
+  }
+
+  h3 {
+    color: var(--tsxup-darkest);
+  }
+}

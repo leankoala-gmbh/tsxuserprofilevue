@@ -1,0 +1,41 @@
+.planSelector {
+  &__text {
+    &--disabled {
+      color: var(--tsxup-ps-text-disabled-color);
+    }
+    &--checked {
+      color: var(--tsxup-ps-text-checked-color);
+    }
+    &--unchecked {
+      color: var(--tsxup-ps-text-unchecked-color);
+    }
+  }
+  &__base {
+    background-color: var(--tsxup-ps-bg);
+  }
+
+  &__option {
+    &--checked {
+      background-color: var(--tsxup-ps-option-checked-bg);
+      border-color: var(--tsxup-ps-option-checked-border);
+    }
+
+    &--unchecked {
+      border-color: var(--tsxup-ps-option-unchecked-border);
+    }
+  }
+
+  &__bullet {
+    &--checked {
+      background-color: var(--tsxup-ps-bullet-checked-bg);
+    }
+    &--unchecked {
+      background-color: var(--tsxup-ps-bullet-unchecked-bg);
+      border-color: var(--tsxup-ps-bullet-unchecked-border);
+    }
+    &--disabled {
+      border-color: var(--tsxup-ps-bullet-disabled-border);
+    }
+
+  }
+}

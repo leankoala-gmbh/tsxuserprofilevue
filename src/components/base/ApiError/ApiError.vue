@@ -1,0 +1,38 @@
+<script lang="ts" setup>
+import { IApiError } from '@/types/general.interfaces'
+
+const props = defineProps({
+  errorObj: {
+    type: Object as () => IApiError,
+    default: () => ({})
+  }
+})
+
+</script>
+
+<template>
+  <AnnotationBox
+    v-if="Object.keys(errorObj).length"
+    type="error"
+    class="flex items-start gap-4"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-8 mt-1 flex-shrink-0 flex-grow-0"
+      viewBox="0 0 24 24"
+    ><path fill="currentColor" d="M12 16a1 1 0 1 0 1 1a1 1 0 0 0-1-1Zm10.67 1.47l-8.05-14a3 3 0 0 0-5.24 0l-8 14A3 3 0 0 0 3.94 22h16.12a3 3 0 0 0 2.61-4.53Zm-1.73 2a1 1 0 0 1-.88.51H3.94a1 1 0 0 1-.88-.51a1 1 0 0 1 0-1l8-14a1 1 0 0 1 1.78 0l8.05 14a1 1 0 0 1 .05 1.02ZM12 8a1 1 0 0 0-1 1v4a1 1 0 0 0 2 0V9a1 1 0 0 0-1-1Z" /></svg>
+    <template v-if="errorObj.violations?.length">
+      <ul class="list-disc ml-4">
+        <li
+          v-for="(violation, i) in errorObj.violations"
+          :key="i"
+        >
+          {{ violation.title }}
+        </li>
+      </ul>
+    </template>
+    <template v-else>
+      {{ errorObj.detail || errorObj.message }}
+    </template>
+  </AnnotationBox>
+</template>

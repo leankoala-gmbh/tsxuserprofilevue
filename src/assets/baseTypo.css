@@ -1,0 +1,17 @@
+.tsxUserProfile {
+  @apply text-sm font-normal;
+  color: var(--tsxup-text);
+
+  .text-subtle {
+    color: var(--tsxup-text-lighter);
+  }
+
+  .text-active {
+    color: var(--tsxup-active);
+  }
+
+  .customAvatar {
+    color: var(--tsxup-brightest);
+    background-color: var(--tsxup-primary);
+  }
+}

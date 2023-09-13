@@ -1,0 +1,17 @@
+.annotationBox {
+  &--success {
+    background-color: var(--tsxup-abox-success-bg);
+    color: var(--tsxup-abox-success-color);
+    border-color: var(--tsxup-abox-success-border);
+  }
+  &--error {
+    background-color: var(--tsxup-abox-error-bg);
+    color: var(--tsxup-abox-error-color);
+    border-color: var(--tsxup-abox-error-border);
+  }
+  &--info {
+    background-color: var(--tsxup-abox-info-bg);
+    color: var(--tsxup-abox-info-color);
+    border-color: var(--tsxup-abox-info-border);
+  }
+}

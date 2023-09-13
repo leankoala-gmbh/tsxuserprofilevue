@@ -1,0 +1,63 @@
+{
+  "active": [
+    {
+      "keyId": "10337195",
+      "keyNumber": "EXT.10337195.0018",
+      "activationCode": "A00C00-Q0M210-CFVX14-K5QD73-8EC626",
+      "status": "active",
+      "createDate": "2023-03-27T00:00:00+00:00",
+      "nextBillingDate": "2023-04-27T00:00:00+00:00",
+      "expirationDate": "2023-04-30T00:00:00+00:00",
+      "type": "360 Monitoring Enterprise",
+      "renewalCostNet": 95.39,
+      "renewalCostVat": 18.13,
+      "renewalCostGross": 113.52,
+      "renewalCurrency": "EUR",
+      "billingPeriod": "1m",
+      "changePaymentSubscriptionUrl": "https://store.plesk.com/1404/scp/s51597947?s=1680107570&e=1682699570&c=D9DC63BA860715B6B1A3A71C0CE4592AB4F5A677",
+      "subscriptionId": "S51597947",
+      "cbItemStatusId": "DEA",
+      "websites": {
+        "count": 10,
+        "min": 0,
+        "max": 999999,
+        "price": 1.13
+      },
+      "servers": {
+        "count": 10,
+        "min": 0,
+        "max": 999999,
+        "price": 1.13
+      }
+    }
+  ],
+  "canceled": [
+    {
+      "keyId": "955343dfd8",
+      "keyNumber": "EXT.09553438.0010ssd",
+      "activationCode": "A00N00-7RHN09-HAAK55-K12934-MX8438",
+      "status": "canceled",
+      "createDate": "2022-06-20T00:00:00+00:00",
+      "nextBillingDate": "2023-02-01T00:00:00+00:00",
+      "type": "haha",
+      "renewalCostNet": 9.94,
+      "renewalCostVat": 2.09,
+      "renewalCostGross": 12.03,
+      "renewalCurrency": "EUR",
+      "billingPeriod": "1m",
+      "subscriptionId": "S51442806",
+      "cbItemStatusId": "DEA",
+      "changePaymentSubscriptionUrl": "https://store.plesk.com/1404/scp/s47735868-6gtBvlERzYrAvX0C",
+      "websites": {
+        "count": 20,
+        "min": 20,
+        "max": 10000
+      },
+      "servers": {
+        "count": 6,
+        "min": 1,
+        "max": 1000
+      }
+    }
+  ]
+}

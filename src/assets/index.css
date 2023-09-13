@@ -1,0 +1,16 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'general.css';
+@import 'grid.css';
+@import 'multiselect.css';
+@import 'button.css';
+@import 'baseTypo.css';
+@import 'tabs.css';
+@import 'profileDetail.css';
+@import 'monitorDetail.css';
+@import 'transitions.css';
+@import 'annotationbox.css';
+@import 'simpleLabel.css';
+@import 'planSelector.css';
+@import 'displayChange.css';

@@ -1,0 +1,3 @@
+// Vitest Snapshot v1
+
+exports[`ErrorMessage.vue > check snapshpt 1`] = `"<div class=\\"errorMessage text-xs text-red-500\\">Error message</div>"`;

@@ -1,0 +1,99 @@
+{
+  "data": [
+    {
+      "productName": "360 Monitoring Pro",
+      "extensionCatalogCode": "360-monitoring",
+      "currency": "USD",
+      "billingPeriod": "1m",
+      "changePaymentUrl": "https://store.plesk.com/1404/scp/s51651302?s=1680188557&e=1682780557&c=6E7BA890DA8F1815686E96A4D8D1DBF27D9AFE9D",
+      "upsells": [
+        {
+          "productId": 241492,
+          "planId": "business",
+          "productName": "360 Monitoring Business",
+          "alignmentGrossPrice": 20.32,
+          "alignmentVatPrice": 0,
+          "alignmentNetPrice": 20.32,
+          "nextBillingGrossPrice": 24.99,
+          "nextBillingVatPrice": 0,
+          "nextBillingNetPrice": 24.99,
+          "nextBillingDate": "2023-04-30"
+        },
+        {
+          "productId": 241947,
+          "planId": "enterprise",
+          "productName": "360 Monitoring Enterprise",
+          "alignmentGrossPrice": 92.9,
+          "alignmentVatPrice": 0,
+          "alignmentNetPrice": 92.9,
+          "nextBillingGrossPrice": 99.99,
+          "nextBillingVatPrice": 0,
+          "nextBillingNetPrice": 99.99,
+          "nextBillingDate": "2023-04-30"
+        }
+      ]
+    },
+    {
+      "productName": "360 Monitoring Pro Flexible",
+      "extensionCatalogCode": "360-monitoring",
+      "currency": "USD",
+      "billingPeriod": "1m",
+      "changePaymentUrl": "https://store.plesk.com/1404/scp/s51651302?s=1680188557&e=1682780557&c=6E7BA890DA8F1815686E96A4D8D1DBF27D9AFE9D",
+      "upsells": [
+        {
+          "productId": 241492,
+          "planId": "business",
+          "productName": "360 Monitoring Business Flexible",
+          "alignmentGrossPrice": 20.32,
+          "alignmentVatPrice": 0,
+          "alignmentNetPrice": 20.32,
+          "nextBillingGrossPrice": 24.99,
+          "nextBillingVatPrice": 0,
+          "nextBillingNetPrice": 24.99,
+          "nextBillingDate": "2023-04-30"
+        },
+        {
+          "productId": 241947,
+          "planId": "enterprise",
+          "productName": "360 Monitoring Enterprise Flexible",
+          "alignmentGrossPrice": 92.9,
+          "alignmentVatPrice": 0,
+          "alignmentNetPrice": 92.9,
+          "nextBillingGrossPrice": 99.99,
+          "nextBillingVatPrice": 0,
+          "nextBillingNetPrice": 99.99,
+          "nextBillingDate": "2023-04-30"
+        }
+      ]
+    },
+    {
+      "productName": "360 Monitoring Business",
+      "extensionCatalogCode": "360-monitoring",
+      "currency": "USD",
+      "billingPeriod": "1m",
+      "changePaymentUrl": "https://store.plesk.com/1404/scp/s51651316?s=1680188612&e=1682780612&c=B1BA6827836AC45E5391208402FBE5DA84737DB8",
+      "upsells": [
+        {
+          "productId": 241947,
+          "planId": "enterprise",
+          "productName": "360 Monitoring Enterprise",
+          "alignmentGrossPrice": 72.58,
+          "alignmentVatPrice": 0,
+          "alignmentNetPrice": 72.58,
+          "nextBillingGrossPrice": 99.99,
+          "nextBillingVatPrice": 0,
+          "nextBillingNetPrice": 99.99,
+          "nextBillingDate": "2023-04-30"
+        }
+      ]
+    },
+    {
+      "productName": "360 Monitoring Enterprise",
+      "extensionCatalogCode": "360-monitoring",
+      "currency": "USD",
+      "billingPeriod": "1m",
+      "changePaymentUrl": "",
+      "upsells": []
+    }
+  ]
+}

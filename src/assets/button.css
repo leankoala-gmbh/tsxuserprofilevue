@@ -1,0 +1,60 @@
+.generalButton {
+  &--regular {
+    background-color: var(--tsxup-button-regular-bg);
+    color: var(--tsxup-button-regular-color);
+    border-color: var(--tsxup-button-regular-bg);
+    &:hover {
+      background-color: var(--tsxup-button-regular-bg-hover);
+      color: var(--tsxup-button-regular-color-hover);
+      border-color: var(--tsxup-button-regular-border-hover);
+    }
+    &.isDisabled {
+      color: var(--tsxup-button-regular-color-disabled);
+      background-color: var(--tsxup-button-regular-bg-disabled);
+      border-color: var(--tsxup-button-regular-border-disabled);
+      &:hover {
+        color: var(--tsxup-button-regular-color-disabled);
+        background-color: var(--tsxup-button-regular-bg-disabled);
+        border-color: var(--tsxup-button-regular-border-disabled);
+      }
+    }
+  }
+  &--ghost {
+    background-color: var(--tsxup-button-ghost-bg);
+    color: var(--tsxup-button-ghost-color);
+    border-color: var(--tsxup-button-ghost-border);
+    &:hover {
+      background-color: var(--tsxup-button-ghost-bg-hover);
+      color: var(--tsxup-button-ghost-color-hover);
+      border-color: var(--tsxup-button-ghost-border-hover);
+    }
+     &.isDisabled {
+       background-color: var(--tsxup-button-ghost-bg-disabled);
+      color: var(--tsxup-button-ghost-color-disabled);
+       border-color: var(--tsxup-button-ghost-border-disabled);
+       &:hover {
+        background-color: var(--tsxup-button-ghost-bg-disabled);
+       color: var(--tsxup-button-ghost-color-disabled);
+        border-color: var(--tsxup-button-ghost-border-disabled);
+      }
+    }
+  }
+  &--transparent {
+    background-color: var(--tsxup-button-transparent-bg);
+    color: var(--tsxup-button-transparent-color);
+    border-color: var(--tsxup-button-transparent-bg);
+    &:hover {
+      color: var(--tsxup-button-transparent-color-hover);
+    }
+  }
+  &--cancel {
+    background-color: var(--tsxup-button-cancel-bg);
+    color: var(--tsxup-button-cancel-color);
+    border-color: var(--tsxup-button-cancel-bg);
+    &:hover {
+      background-color: var(--tsxup-button-cancel-bg-hover);
+      color: var(--tsxup-button-cancel-color-hover);
+      border-color: var(--tsxup-button-cancel-bg-hover);
+    }
+  }
+}

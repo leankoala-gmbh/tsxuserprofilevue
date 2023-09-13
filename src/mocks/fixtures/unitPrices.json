@@ -1,0 +1,27 @@
+{
+    "status": "ok",
+    "data": {
+        "websites": {
+            "alignmentGrossPrice": 0.2,
+            "alignmentVatPrice": 0.03,
+            "alignmentNetPrice": 0.17,
+            "nextBillingGrossPrice": 0.23,
+            "nextBillingVatPrice": 0.04,
+            "nextBillingNetPrice": 0.19,
+            "currency": "EUR",
+            "nextBillingDate": "2023-04-30",
+            "changePaymentUrl": "https://store.plesk.com/1404/scp/s51664074?s=1680259109&e=1682851109&c=1C1FB92076B6976DD450A9BDCCBA078AC18DD6D6"
+        },
+        "servers": {
+            "alignmentGrossPrice": 1.24,
+            "alignmentVatPrice": 0.2,
+            "alignmentNetPrice": 1.04,
+            "nextBillingGrossPrice": 1.42,
+            "nextBillingVatPrice": 0.23,
+            "nextBillingNetPrice": 1.19,
+            "currency": "EUR",
+            "nextBillingDate": "2023-04-30",
+            "changePaymentUrl": "https://store.plesk.com/1404/scp/s51664074?s=1680259109&e=1682851109&c=1C1FB92076B6976DD450A9BDCCBA078AC18DD6D6"
+        }
+    }
+}

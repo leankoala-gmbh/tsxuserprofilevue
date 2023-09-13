@@ -1,0 +1,32 @@
+@domain = https://app.stage.360monitoring.com/
+
+### Get Licenses
+POST {{domain}}/licenses/preview
+Content-Type: application/json
+
+{
+  "Cookie": "PHPSESSID=gbb00jp95r3071iil59e0d8vuf"
+}
+
+### Get Plans
+POST {{domain}}/plans HTTP/1.1
+
+
+
+### Upgrade Plan
+POST {{domain}}/upgrade-plan
+
+### Donwgrade Plan
+POST {{domain}}/downgrade-plan
+
+### Upgrade Properties
+POST {{domain}}/upgrade-properties
+
+### Downgrade Properties
+POST {{domain}}/downgrade-properties
+
+### Terminate
+POST {{domain}}/terminate
+
+curl -X POST 'https://app.stage.360monitoring.com/license/preview'   -H 'cookie: PHPSESSID=gbb00jp95r3071iil59e0d8vuf'
+

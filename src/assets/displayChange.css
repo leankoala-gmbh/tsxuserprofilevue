@@ -1,0 +1,10 @@
+.displayChangeBox {
+  background-color: var(--tsx-display-change-box-bg);
+  color: var(--tsx-display-change-box-color);
+  &__start {
+    color: var(--tsx-display-change-box-start-color);
+  }
+  &__target {
+    color: var(--tsx-display-change-box-target-color);
+  }
+}

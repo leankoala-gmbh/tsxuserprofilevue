@@ -1,0 +1,50 @@
+.tsxUp-grid-formRow {
+  display: grid;
+  grid-template:
+    'tupgfw1' auto
+    'tupgfw2' auto /
+     minmax(0, 1fr);
+}
+
+@container tsxupmain (min-width: 660px) {
+  .tsxUp-grid-formRow {
+    gap: 16px;
+    grid-template:
+      'tupgfw1 tupgfw2' auto /
+       200px minmax(0, 1fr);
+  }
+}
+
+.tsxUp-grid-monitorQuantity {
+  display: grid;
+  grid-gap: 8px 16px;
+  align-items: center;
+  grid-template:
+    'tupmq1 tupmq1    .  ' auto
+    'tupmq2 tupmq3 tupmq4' auto/
+     130px minmax(0, 1fr) minmax(0, 1fr);
+
+  &__1 {
+    grid-area: tupmq1;
+  }
+  &__2 {
+    grid-area: tupmq2;
+
+  }
+  &__3 {
+    grid-area: tupmq3;
+  }
+  &__4 {
+    grid-area: tupmq4;
+    text-align: right;
+  }
+}
+
+@container tsxupmain (min-width: 600px) {
+  .tsxUp-grid-monitorQuantity {
+    gap: 16px;
+    grid-template:
+      'tupmq1 tupmq2 tupmq3 tupmq4' auto /
+        minmax(0, 3fr) 130px 40px 140px;
+  }
+}
