@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "author": "Sascha Fuchs <sascha.fuchs@webpros.com>",
   "license": "MIT",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "engines": {
     "node": "18.x"
   },
@@ -27,7 +27,7 @@
     "typecheck": "vue-tsc --noEmit",
     "plop": "plop",
     "generateCss": "postcss ./src/assets/index.css -o ./src/assets/output.css",
-    "prePublish": "npm run generateCss && npm run build",
+    "prePublish": "npm run generateCss && npm run build && npm publish",
     "story:dev": "histoire dev",
     "story:build": "histoire build",
     "story:preview": "histoire preview"

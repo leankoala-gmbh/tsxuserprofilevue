@@ -58,6 +58,10 @@ onMounted(() => {
   const cookieLang = cookies.get('locale')
   setLanguage(cookieLang || props.currentLanguage)
 })
+
+const uniBool = (str: string | boolean) => {
+  return typeof str === 'string' ? str === 'true' : str
+}
 </script>
 
 <template>
@@ -70,7 +74,7 @@ onMounted(() => {
     />
     <ViewLicense
       v-if="view === 'license'"
-      :read-only="readOnly"
+      :read-only="uniBool(readOnly)"
       :inactive-fields="inactiveFieldsArr"
     />
   </div>
