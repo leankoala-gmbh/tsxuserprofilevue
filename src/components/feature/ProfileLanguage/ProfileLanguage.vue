@@ -75,7 +75,10 @@ const changeLanguage = async () => {
     } else {
       setLanguageCookie(language.value as string)
     }
-    window.mitt.emit('tsxUserProfile:changeLanguage', language.value)
+    window.mitt.emit('tsxUserProfile', {
+      action: 'changeLanguage',
+      data: language.value
+    })
   } catch (e) {
     console.error(e)
   }

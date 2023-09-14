@@ -10,10 +10,11 @@ const props = defineProps({
   }
 })
 
-const updateTimezone = (event: string) => {
-  emit('update', event)
+const updateTimezone = (timezone: string) => {
+  emit('update', timezone)
   window.mitt.emit('tsxUserProfile', {
-    timezone: event
+    action: 'updateTimezone',
+    data: timezone
   })
 }
 </script>

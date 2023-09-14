@@ -45,8 +45,6 @@ declare module 'vue' {
     ProfileIds: typeof import('./src/components/feature/ProfileIds/ProfileIds.vue')['default']
     'ProfileIds.story': typeof import('./src/components/feature/ProfileIds/ProfileIds.story.vue')['default']
     ProfileInfos: typeof import('./src/components/feature/ProfileInfos/ProfileInfos.vue')['default']
-    ProfileLangTime: typeof import('./src/components/feature/ProfileLangTime/ProfileLangTime.vue')['default']
-    'ProfileLangTime.story': typeof import('./src/components/feature/ProfileLangTime/ProfileLangTime.story.vue')['default']
     ProfileLanguage: typeof import('./src/components/feature/ProfileLanguage/ProfileLanguage.vue')['default']
     'ProfileLanguage.story': typeof import('./src/components/feature/ProfileLanguage/ProfileLanguage.story.vue')['default']
     ProfileNaming: typeof import('./src/components/feature/ProfileNaming/ProfileNaming.vue')['default']

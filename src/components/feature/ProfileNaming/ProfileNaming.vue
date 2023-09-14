@@ -26,7 +26,13 @@ const formSuccess = ref(false)
 const successForm = (payload: {firstName: string, familyName: string}) => {
   emit('update', payload)
 
-  window.mitt.emit('tsxUserProfile:updateNaming', payload)
+  window.mitt.emit('tsxUserProfile', {
+    action: 'updateNaming',
+    data: {
+      firstName: payload.firstName,
+      familyName: payload.familyName
+    }
+  })
 
   formSuccess.value = true
 
