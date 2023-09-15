@@ -58,7 +58,6 @@ const cookies = useCookies(['locale'])
 onMounted(() => {
   const cookieLang = cookies.get('locale')
   setLanguage(cookieLang || props.currentLanguage)
-  console.log('readonly', props.readOnly, typeof props.readOnly)
 })
 
 const uniBool = (str: string | boolean) => {
