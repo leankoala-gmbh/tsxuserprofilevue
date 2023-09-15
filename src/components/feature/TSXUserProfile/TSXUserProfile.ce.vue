@@ -35,7 +35,7 @@ const props = defineProps({
     default: 'profile'
   },
   readOnly: {
-    type: Boolean,
+    type: [Boolean, String],
     default: false
   },
   localeSavingUrl: {
@@ -43,6 +43,7 @@ const props = defineProps({
     default: ''
   }
 })
+
 
 const overrideBaseApiUrl = props.overrideBaseApiUrl?.length ? props.overrideBaseApiUrl : ''
 
@@ -57,6 +58,7 @@ const cookies = useCookies(['locale'])
 onMounted(() => {
   const cookieLang = cookies.get('locale')
   setLanguage(cookieLang || props.currentLanguage)
+  console.log('readonly', props.readOnly, typeof props.readOnly)
 })
 
 const uniBool = (str: string | boolean) => {

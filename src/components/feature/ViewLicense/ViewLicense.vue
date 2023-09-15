@@ -16,6 +16,11 @@ const licenseData = ref<ILicenses|null>(null)
 const licenseCache = ref<ILicenseCache>({})
 const subscriptionPlans = ref<IPlanUpsellsFull[]>()
 
+
+onMounted(() => {
+  console.log('readonly inside childcomponent', props.readOnly, typeof props.readOnly)
+})
+
 const getSubscriptionPlans = async() => {
   apiError.value = null
   try {
