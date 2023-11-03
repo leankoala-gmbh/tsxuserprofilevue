@@ -87,5 +87,6 @@
   "timeOutBuy": "Ainda estamos processando uma alteração anterior em sua conta. Verifique novamente mais tarde para continuar modificando sua assinatura atual.",
   "apiStatusError": "Atualmente nenhuma informação pôde ser recuperada. Por favor, tente novamente mais tarde.",
   "language": "Idioma",
-  "userID": "ID do usuário"
+  "userID": "ID do usuário",
+  "comparePlans": "Comparar planos"
 }

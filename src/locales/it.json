@@ -87,5 +87,6 @@
   "timeOutBuy": "La precedente modifica al tuo account è ancora in elaborazione. Controlla più tardi per continuare la modifica del tuo abbonamento attuale.",
   "apiStatusError": "Impossibile recuperare le informazioni al momento. Riprova più tardi.",
   "language": "Lingua",
-  "userID": "ID utente"
+  "userID": "ID utente",
+  "comparePlans": "Confronta i piani"
 }

@@ -87,5 +87,6 @@
   "timeOutBuy": "La précédente modification de votre compte est encore en cours de traitement. Nous vous invitons à revenir ultérieurement pour continuer à modifier votre abonnement actuel.",
   "apiStatusError": "Impossible de récupérer des informations actuellement. Veuillez essayer à nouveau ultérieurement.",
   "language": "Langue",
-  "userID": "ID de l'utilisateur"
+  "userID": "ID de l'utilisateur",
+  "comparePlans": "Comparer les offres"
 }

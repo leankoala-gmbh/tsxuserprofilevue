@@ -13,6 +13,10 @@ const props = defineProps({
   localeSavingUrl: {
     type: String,
     default: ''
+  },
+  currentLang: {
+    type: String,
+    default: 'en'
   }
 })
 
@@ -25,6 +29,8 @@ const checkRoute = () => {
     boxToOpen.value = query
   }
 }
+
+const profileLang = ref(props.currentLang)
 
 onMounted(() => {
   checkRoute()
@@ -64,6 +70,7 @@ const updateTimezone = (payload: {timezone: string}) => {
       <ProfileLanguage
         v-if="!inactiveFields.includes('language')"
         class="@[850px]/tsxupmain:w-1/2"
+        :current-lang="profileLang"
         :locale-saving-url="props.localeSavingUrl"
       />
       <ProfileTimezone
