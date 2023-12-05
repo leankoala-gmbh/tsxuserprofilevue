@@ -12,6 +12,7 @@ export interface IProfileUser {
   nixstatsId?: string
   threeSixstyId?: string
   sessionToken?: string
+  isOauthUser?: boolean
 }
 
 export interface ILicensesDetails {

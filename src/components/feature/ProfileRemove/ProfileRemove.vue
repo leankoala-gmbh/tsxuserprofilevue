@@ -2,6 +2,10 @@
 import { IProfileUser } from '@/types/general.interfaces'
 
 const props = defineProps({
+  userData: {
+    type: Object as () => IProfileUser,
+    default: () => ({})
+  },
   open: {
     type: Boolean,
     default: false
@@ -70,7 +74,8 @@ watch(() => props.open, () => {
           </div>
         </div>
       </AnnotationBox>
-      <RemoveAccountFormular />
+      <RemoveAccountFormular v-if="!userData.isOauthUser" />
+      <RemoveAccountFormularOauth v-else />
     </template>
   </ProfileDetailBox>
 </template>

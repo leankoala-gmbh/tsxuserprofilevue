@@ -8,7 +8,7 @@ interface ILocales {
 }
 
 const cookies = useCookies(['locale'])
-
+const defaultLanguage = 'en'
 const currentLanguage = ref<string>(cookies.get('locale') || 'en')
 
 export function t (key: string, dynamicVars : null|{[key: string]: string} = null) : string {
@@ -17,7 +17,11 @@ export function t (key: string, dynamicVars : null|{[key: string]: string} = nul
 
   if (languageSpectrum.includes(currentLanguage.value)) {
     const translationString = translations[currentLanguage.value][key]
-    if (!translationString) return key
+    if (!translationString) {
+      const defaultString = translations[defaultLanguage][key]
+      if (!defaultString) return key
+      return defaultString
+    }
     if (!dynamicVars || typeof dynamicVars !== 'object') return translationString
     return translationString.replace(/{([^}]+)}/g, (match, rkey) => dynamicVars[rkey] || match)
   }

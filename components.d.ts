@@ -55,6 +55,7 @@ declare module 'vue' {
     'ProgressBar.story': typeof import('./src/components/pure/ProgressBar/ProgressBar.story.vue')['default']
     QuantitySelector: typeof import('./src/components/base/QuantitySelector/QuantitySelector.vue')['default']
     RemoveAccountFormular: typeof import('./src/components/feature/RemoveAccountFormular/RemoveAccountFormular.vue')['default']
+    RemoveAccountFormularOauth: typeof import('./src/components/feature/RemoveAccountFormularOauth/RemoveAccountFormularOauth.vue')['default']
     SimpleLabel: typeof import('./src/components/pure/SimpleLabel/SimpleLabel.vue')['default']
     'SimpleLabel.story': typeof import('./src/components/pure/SimpleLabel/SimpleLabel.story.vue')['default']
     Spinner: typeof import('./src/components/pure/Spinner/Spinner.vue')['default']
