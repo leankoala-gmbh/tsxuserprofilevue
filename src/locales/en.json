@@ -88,5 +88,7 @@
   "apiStatusError": "Currently no information could be retrieved. Please try again later.",
   "language": "Language",
   "userID": "User ID",
-  "comparePlans": "Compare plans"
+  "comparePlans": "Compare plans",
+  "setPassword": "Set Password",
+  "enterEmailConfirmRemove": "Enter your email to confirm the removal of the account"
 }

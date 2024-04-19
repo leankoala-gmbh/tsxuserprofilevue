@@ -27,7 +27,7 @@ watch(() => props.open, () => {
     <div v-if="!isOpen" class="profileDetail--hover m-2 rounded px-4 py-5 cursor-pointer">
       <div class="flex justify-between" @click="isOpen = true">
         <div class="flex gap-4 items-center text-base font-medium">
-          {{ t('updatePassword') }}
+          {{ userData.isOauthUser ? t('setPassword'): t('updatePassword') }}
         </div>
         <div
           class="w-10 h-10 flex items-center justify-center"
@@ -48,7 +48,7 @@ watch(() => props.open, () => {
       class="my-1"
       @close="isOpen = false"
     >
-      {{ t('updatePassword') }}
+      {{ userData.isOauthUser ? t('setPassword'): t('updatePassword') }}
     </ProfileBoxHeader>
     <template #body>
       <PasswordFormular

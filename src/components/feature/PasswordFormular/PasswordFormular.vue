@@ -36,7 +36,8 @@ const successForm = ref(false)
 const errorMsgFromApi = ref<IApiError>()
 
 const submitPassword = async () => {
-  if (!canBeSaved.current ) return
+  if (!props.userData.isOauthUser && !canBeSaved.current ) return
+
   errorMsgFromApi.value = undefined
   try {
     await useApiAbstraction()
@@ -60,7 +61,7 @@ const submitPassword = async () => {
       {{ t('successChangePassword') }}
     </StatusMessage>
     <form @submit.prevent="submitPassword">
-      <div class="mb-6">
+      <div v-if="!userData.isOauthUser" class="mb-6">
         <label class="capitalize">{{ t('currentPassword') }}</label>
         <FormInput
           id="currentPassword"
@@ -84,7 +85,7 @@ const submitPassword = async () => {
       <div>
         <GeneralButton
           type="submit"
-          :is-disabled="!canBeSaved.current "
+          :is-disabled="!userData.isOauthUser ? !canBeSaved.current : false"
         >
           {{ t('save') }}
         </GeneralButton>
