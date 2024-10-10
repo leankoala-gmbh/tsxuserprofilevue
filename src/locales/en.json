@@ -90,5 +90,7 @@
   "userID": "User ID",
   "comparePlans": "Compare plans",
   "setPassword": "Set Password",
-  "enterEmailConfirmRemove": "Enter your email to confirm the removal of the account"
+  "enterEmailConfirmRemove": "Enter your email to confirm the removal of the account",
+  "dntBody": "We track user interactions to improve our web interface, making it more responsive and tailored to user needs. This helps us enhance functionality, optimize performance, and ensure a secure, seamless experience for everyone. You can activate and deactivate tracking at any time.",
+  "dntHeadline": "Analytics Tracking Opt-in"
 }

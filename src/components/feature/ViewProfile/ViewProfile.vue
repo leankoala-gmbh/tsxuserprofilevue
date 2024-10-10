@@ -17,6 +17,10 @@ const props = defineProps({
   currentLang: {
     type: String,
     default: 'en'
+  },
+  token: {
+    type: String,
+    default: ''
   }
 })
 
@@ -86,6 +90,11 @@ const updateTimezone = (payload: {timezone: string}) => {
       v-if="!inactiveFields.includes('consent')"
       id="consent"
       :user-data="userDataObj"
+    />
+    <ProfileDnt
+      v-if="!inactiveFields.includes('dnt')"
+      id="dnt"
+      :token="token"
     />
     <ProfileRemove
       v-if="!inactiveFields.includes('removeAccount')"

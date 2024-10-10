@@ -41,6 +41,10 @@ const props = defineProps({
   localeSavingUrl: {
     type: String,
     default: ''
+  },
+  token: {
+    type: String,
+    default: ''
   }
 })
 
@@ -82,6 +86,7 @@ const uniBool = (str: string | boolean) => {
       :inactive-fields="inactiveFieldsArr"
       :locale-saving-url="props.localeSavingUrl"
       :current-lang="cookieLang"
+      :token="token"
     />
     <ViewLicense
       v-if="view === 'license'"

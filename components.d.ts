@@ -42,6 +42,7 @@ declare module 'vue' {
     'ProfileBoxHeader.story': typeof import('./src/components/pure/ProfileBoxHeader/ProfileBoxHeader.story.vue')['default']
     ProfileConsent: typeof import('./src/components/feature/ProfileConsent/ProfileConsent.vue')['default']
     ProfileDetailBox: typeof import('./src/components/base/ProfileDetailBox/ProfileDetailBox.vue')['default']
+    ProfileDnt: typeof import('./src/components/feature/ProfileDnt/ProfileDnt.vue')['default']
     ProfileIds: typeof import('./src/components/feature/ProfileIds/ProfileIds.vue')['default']
     'ProfileIds.story': typeof import('./src/components/feature/ProfileIds/ProfileIds.story.vue')['default']
     ProfileInfos: typeof import('./src/components/feature/ProfileInfos/ProfileInfos.vue')['default']
