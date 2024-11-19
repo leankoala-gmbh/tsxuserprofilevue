@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 const emit = defineEmits(['close'])
-console.log('profileBoxHeader')
 </script>
 
 <template>

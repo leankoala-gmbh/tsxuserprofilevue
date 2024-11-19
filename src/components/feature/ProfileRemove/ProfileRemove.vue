@@ -17,7 +17,6 @@ const isOpen = ref(false)
 watch(() => props.open, () => {
   if (props.open) isOpen.value = true
 }, { immediate: true })
-console.log('profileRemove')
 </script>
 
 <template>
