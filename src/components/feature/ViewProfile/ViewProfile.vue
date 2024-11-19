@@ -50,6 +50,7 @@ const updateName = (payload: {firstName: string, familyName: string}) => {
 const updateTimezone = (payload: {timezone: string}) => {
   userDataObj.value.timezone = payload.timezone
 }
+console.log(props.inactiveFields)
 </script>
 
 <template>

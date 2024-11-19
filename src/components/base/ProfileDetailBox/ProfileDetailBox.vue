@@ -9,7 +9,7 @@ const props = defineProps({
     default: true
   }
 })
-
+console.log('profileDetailBox')
 </script>
 
 <template>
