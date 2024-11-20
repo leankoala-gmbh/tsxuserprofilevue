@@ -102,7 +102,7 @@ const closeCanvasStyle = () => {
   setTimeout(() => {
     isActiveBackground.value = false
     body!.style.overflow = 'auto'
-    window.mitt.emit('closeCanvas')
+    window.mitt.emit('tsxUserProfile', { action: 'closeCanvas' })
   }, 100)
 }
 
@@ -134,7 +134,7 @@ window.mitt.on('tsxUserProfile', (data: { action: string }) => {
     </template>
     <template v-else>
       <div
-        class="screenOverlay fixed h-screen w-screen bg-trans-black-08 top-0 right-0 transition-opacity duration-300 ease-in-out backdrop-filter backdrop-blur-sm"
+        class="screenOverlay fixed z-10 h-screen w-screen bg-trans-black-08 top-0 right-0 transition-opacity duration-300 ease-in-out backdrop-filter backdrop-blur-sm"
         :class="[isActiveBackground ? 'screenOverlay--open': '']"
       />
       <transition name="slide">
