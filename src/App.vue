@@ -24,11 +24,13 @@ const canvasType = ref('profile')
 
 const clickHandler = (type: string) => {
   canvasType.value = type
-  window.mitt.emit('openCanvas')
+  window.mitt.emit('tsxUserProfile', { action: 'openCanvas' })
 }
 
-window.mitt.on('closeCanvas', () => {
-  canvasType.value = ''
+window.mitt.on('tsxUserProfile', (data: { action: string }) => {
+  if (data.action === 'closeCanvas') {
+    canvasType.value = ''
+  }
 })
 
 </script>

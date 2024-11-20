@@ -106,8 +106,10 @@ const closeCanvasStyle = () => {
   }, 100)
 }
 
-window.mitt.on('openCanvas', () => {
-  openCanvasStyle()
+window.mitt.on('tsxUserProfile', (data: { action: string }) => {
+  if (data.action === 'openCanvas') {
+    openCanvasStyle()
+  }
 })
 </script>
 
