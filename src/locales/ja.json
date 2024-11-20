@@ -88,5 +88,7 @@
   "apiStatusError": "現在、取得できる情報はありません。後でやり直してください。",
   "language": "言語",
   "userID": "ユーザ ID",
-  "comparePlans": "プランを比較"
+  "comparePlans": "プランを比較",
+  "Profile": "プロフィール",
+  "License": "ライセンス"
 }

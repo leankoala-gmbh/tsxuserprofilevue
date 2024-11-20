@@ -88,5 +88,7 @@
   "apiStatusError": "En este momento no pudo recuperarse ninguna información. Inténtelo de nuevo transcurridos unos minutos.",
   "language": "Idioma",
   "userID": "ID de usuario",
-  "comparePlans": "Comparativa de planes"
+  "comparePlans": "Comparativa de planes",
+  "Profile": "Perfil",
+  "License": "Licencia"
 }

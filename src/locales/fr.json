@@ -88,5 +88,7 @@
   "apiStatusError": "Impossible de récupérer des informations actuellement. Veuillez essayer à nouveau ultérieurement.",
   "language": "Langue",
   "userID": "ID de l'utilisateur",
-  "comparePlans": "Comparer les offres"
+  "comparePlans": "Comparer les offres",
+  "Profile": "Profil",
+  "License": "Licence"
 }

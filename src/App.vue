@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+import mitt from 'mitt'
+
+window.mitt = window.mitt || mitt()
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import TSXUserProfile from './components/feature/TSXUserProfile/TSXUserProfile.ce.vue'
@@ -16,31 +19,46 @@ const userData = {
   isOauthUser: true
 }
 const inactiveFields = []
+
+const canvasType = ref('profile')
+
+const clickHandler = (type: string) => {
+  canvasType.value = type
+  window.mitt.emit('openCanvas')
+}
+
+window.mitt.on('closeCanvas', () => {
+  canvasType.value = ''
+})
+
 </script>
 
 
 <template>
   <div class="p-12 bg-slate-600">
-    <div class="mb-4 text-xl font-bold">
+    <div class="mb-4 text-xl font-bold" @click="clickHandler('profile')">
       Profile
     </div>
-    <TSXUserProfile
-      class="mb-8"
-      :user-data="JSON.stringify(userData)"
-      :inactive-fields="JSON.stringify(inactiveFields)"
-      override-base-api-url="https://app.stage.360monitoring.com"
-      view="profile"
-      base-api-url=""
-    />
-    <div class="mb-4 text-xl font-bold">
+    <div class="mb-4 text-xl font-bold" @click="clickHandler('license')">
       License
     </div>
     <TSXUserProfile
+      :user-data="JSON.stringify(userData)"
+      :inactive-fields="JSON.stringify(inactiveFields)"
+      override-base-api-url="https://app.stage.360monitoring.com"
+      :view="canvasType"
+      base-api-url=""
+      :off-canvas="true"
+    />
+
+    <!-- <TSXUserProfile
+      v-if="canvasType === 'license'"
       :inactive-fields="JSON.stringify(inactiveFields)"
       override-base-api-url="https://app.stage.360monitoring.com"
       view="license"
       base-api-url=""
       :read-only="false"
-    />
+      :off-canvas="true"
+    /> -->
   </div>
 </template>

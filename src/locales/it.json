@@ -88,5 +88,7 @@
   "apiStatusError": "Impossibile recuperare le informazioni al momento. Riprova più tardi.",
   "language": "Lingua",
   "userID": "ID utente",
-  "comparePlans": "Confronta i piani"
+  "comparePlans": "Confronta i piani",
+  "Profile": "Profilo",
+  "License": "Licenza"
 }
