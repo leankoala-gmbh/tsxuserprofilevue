@@ -57,14 +57,13 @@ const props = defineProps({
 })
 
 
-const overrideBaseApiUrl = props.overrideBaseApiUrl?.length ? props.overrideBaseApiUrl : ''
 
-provide('overrideBaseApiUrl', overrideBaseApiUrl)
+const overrideBaseApiUrl = computed(() => props.overrideBaseApiUrl?.length ? props.overrideBaseApiUrl : '')
 
-const userDataObj = ref<IProfileUser>({})
-userDataObj.value = props.view === 'profile' ? JSON.parse(props.userData) : {}
+provide('overrideBaseApiUrl', overrideBaseApiUrl.value)
 
-const inactiveFieldsArr: string[] = JSON.parse(props.inactiveFields)
+const userDataObj = computed<IProfileUser>(() => props.view === 'profile' ? JSON.parse(props.userData) : {})
+const inactiveFieldsArr = computed<string[]>(() => JSON.parse(props.inactiveFields))
 const cookies = useCookies(['locale'])
 
 const cookieLang = ref('')
@@ -102,12 +101,15 @@ const closeCanvasStyle = () => {
   setTimeout(() => {
     isActiveBackground.value = false
     body!.style.overflow = 'auto'
-    window.mitt.emit('tsxUserProfile', { action: 'closeCanvas' })
+    canvasView.value = ''
   }, 100)
 }
 
-window.mitt.on('tsxUserProfile', (data: { action: string }) => {
-  if (data.action === 'openCanvas') {
+const canvasView = ref('')
+
+window.mitt.on('tsxUserProfile', (data: any) => {
+  if (data.action === 'openCanvas' && data.view) {
+    canvasView.value = data.view
     openCanvasStyle()
   }
 })
@@ -163,7 +165,7 @@ window.mitt.on('tsxUserProfile', (data: { action: string }) => {
             </button>
           </div>
           <ViewProfile
-            v-if="view === 'profile'"
+            v-if="canvasView === 'profile'"
             :user-data="userDataObj"
             :inactive-fields="inactiveFieldsArr"
             :locale-saving-url="props.localeSavingUrl"
@@ -171,7 +173,7 @@ window.mitt.on('tsxUserProfile', (data: { action: string }) => {
             :token="token"
           />
           <ViewLicense
-            v-if="view === 'license'"
+            v-if="canvasView === 'license'"
             class="p-4"
             :read-only="uniBool(readOnly)"
             :inactive-fields="inactiveFieldsArr"
