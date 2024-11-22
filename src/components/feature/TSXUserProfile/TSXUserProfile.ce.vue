@@ -56,8 +56,6 @@ const props = defineProps({
   }
 })
 
-
-
 const overrideBaseApiUrl = computed(() => props.overrideBaseApiUrl?.length ? props.overrideBaseApiUrl : '')
 
 provide('overrideBaseApiUrl', overrideBaseApiUrl.value)
@@ -109,7 +107,6 @@ const closeCanvasStyle = () => {
 }
 
 window.mitt.on('tsxUserProfile', (data: any) => {
-  console.log('tsxUserProfile', data)
   if (data.action === 'openCanvas' && data.view) {
     console.log('openCanvas', data.view)
     openCanvasStyle(data.view)
@@ -166,8 +163,6 @@ window.mitt.on('tsxUserProfile', (data: any) => {
               </div>
             </button>
           </div>
-          view: {{ canvasView }} <br>
-          userDataObj: {{ userDataObj }} <br>
           <ViewProfile
             v-if="canvasView === 'profile'"
             :user-data="userDataObj"
