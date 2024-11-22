@@ -88,11 +88,14 @@ const body = document.querySelector('body')
 const isActiveBackground = ref(false)
 const isOpenCanvas = ref(false)
 
-const openCanvasStyle = () => {
+const canvasView = ref('')
+
+const openCanvasStyle = (view: string) => {
   body!.style.overflow = 'hidden'
   isActiveBackground.value = true
   setTimeout(() => {
     isOpenCanvas.value = true
+    canvasView.value = view
   }, 100)
 }
 
@@ -105,14 +108,11 @@ const closeCanvasStyle = () => {
   }, 100)
 }
 
-const canvasView = ref('')
-
 window.mitt.on('tsxUserProfile', (data: any) => {
   console.log('tsxUserProfile', data)
   if (data.action === 'openCanvas' && data.view) {
     console.log('openCanvas', data.view)
-    canvasView.value = data.view
-    openCanvasStyle()
+    openCanvasStyle(data.view)
   }
 })
 </script>
@@ -166,6 +166,8 @@ window.mitt.on('tsxUserProfile', (data: any) => {
               </div>
             </button>
           </div>
+          view: {{ canvasView }} <br>
+          userDataObj: {{ userDataObj }} <br>
           <ViewProfile
             v-if="canvasView === 'profile'"
             :user-data="userDataObj"
