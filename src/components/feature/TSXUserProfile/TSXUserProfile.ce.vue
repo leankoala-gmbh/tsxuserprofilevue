@@ -62,7 +62,7 @@ const overrideBaseApiUrl = computed(() => props.overrideBaseApiUrl?.length ? pro
 
 provide('overrideBaseApiUrl', overrideBaseApiUrl.value)
 
-const userDataObj = computed<IProfileUser>(() => props.view === 'profile' ? JSON.parse(props.userData) : {})
+const userDataObj = computed<IProfileUser>(() => JSON.parse(props.userData))
 const inactiveFieldsArr = computed<string[]>(() => JSON.parse(props.inactiveFields))
 const cookies = useCookies(['locale'])
 
