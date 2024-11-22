@@ -109,6 +109,7 @@ const canvasView = ref('')
 
 window.mitt.on('tsxUserProfile', (data: any) => {
   if (data.action === 'openCanvas' && data.view) {
+    console.log('openCanvas', data.view)
     canvasView.value = data.view
     openCanvasStyle()
   }
