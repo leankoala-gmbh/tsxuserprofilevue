@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import axios from 'axios'
 import { ILicenses, IPlanSelector, ILicenseCache, IPlanUpsellsFull } from '@/types/general.interfaces'
 
 const props = defineProps({
@@ -10,13 +11,9 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  cleverbridgeUrl: {
+  completeUpsellUrl: {
     type: String,
     default: ''
-  },
-  contentScreenKey: {
-    type: String,
-    default: 'tsxContentScreenConfig'
   }
 })
 
@@ -235,6 +232,23 @@ const updateLicenseData = async(e: IUpdateLicenseData) => {
 }
 
 const showLicenseDetails = ref(false)
+
+const cleverbridgeUrl = ref('')
+
+const getCleverbridgeUrl = async () => {
+  if (!props.completeUpsellUrl) return
+  try {
+    const { data } = await axios.get(props.completeUpsellUrl)
+    if (!data?.data) throw new Error('No data found')
+    cleverbridgeUrl.value = data.data.url
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+onMounted(async () => {
+  await getCleverbridgeUrl()
+})
 </script>
 
 <template>
@@ -298,6 +312,10 @@ const showLicenseDetails = ref(false)
     <h3 class="text-lg font-semibold mb-2">
       {{ t('upgradeAccount') }}
     </h3>
-    <iframe :src="cleverbridgeUrl" frameborder="0" class="h-[calc(100%-120px)] -mx-6 w-[calc(100%+40px)]" />
+    <iframe
+      v-if="cleverbridgeUrl"
+      :src="cleverbridgeUrl"
+      frameborder="0"
+      class="h-[calc(100%-120px)] -mx-6 w-[calc(100%+40px)]" />
   </div>
 </template>

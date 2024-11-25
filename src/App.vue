@@ -50,7 +50,7 @@ window.mitt.on('tsxUserProfile', (data: { action: string }) => {
       override-base-api-url="https://app.stage.360monitoring.com"
       base-api-url=""
       :off-canvas="true"
-      cleverbridge-url="https://store.plesk.com/1404/?scope=checkout&cart=s8843&recommendation=360monitoring-pro,360monitoring-biz,360monitoring-ent&cfg=base_iframe_or&x-loading=block&currencies=EUR,USD,GBP,JPY&coupon=YTK-PBR-VER&x-activation-data=NjczYzYyMDVhOTljNGFkMDNhMGJhNzE1&quantityrno_2=0&quantityrno_3=0&deliveryFirstname=meh&deliveryEmail=sascha.fuchs%2Bstage-1911241101%40webpros.com"
+      complete-upsell-url="sdfsdfs"
     />
 
     <!-- <TSXUserProfile

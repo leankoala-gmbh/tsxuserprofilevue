@@ -203,6 +203,7 @@ export function useApiAbstraction (cnameOverride: string|null = null) {
       errorHandler(error)
     }
   }
+
   const getConsent = async() : Promise<boolean> => {
     guardUrl()
     try {

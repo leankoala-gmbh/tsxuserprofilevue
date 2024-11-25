@@ -68,13 +68,9 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  cleverbridgeUrl: {
+  completeUpsellUrl: {
     type: String,
     default: ''
-  },
-  contentScreenKey: {
-    type: String,
-    default: 'tsxContentScreenConfig'
   }
 })
 
@@ -249,8 +245,7 @@ const userDataObj = computed(() => {
             class="p-4"
             :read-only="uniBool(readOnly)"
             :inactive-fields="inactiveFields"
-            :cleverbridge-url="cleverbridgeUrl"
-            :content-screen-key="contentScreenKey"
+            :complete-upsell-url="completeUpsellUrl"
           />
         </div>
       </div>
