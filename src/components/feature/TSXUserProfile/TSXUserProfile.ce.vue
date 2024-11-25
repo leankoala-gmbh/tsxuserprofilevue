@@ -150,10 +150,8 @@ const inactiveFields = computed(() => {
 
   const selectedConf = matrix[realPartnerType.value] || matrix.default
 
-  if (props.isDeleteAble) {
-    selectedConf.push('removeAccount')
-  }
-  return selectedConf
+  console.log('selectedConf', selectedConf)
+  return props.isDeleteAble ? selectedConf.push('removeAccount') : selectedConf
 })
 
 const setGravatar = (baseavatar: any) => {
@@ -168,6 +166,7 @@ const userDataObj = computed(() => {
   email, name, avatar, timezone, nixstatsId, threeSixtyId, globalUserInformation
   */
   const userData = JSON.parse(props.userData)
+  console.log('userData', userData)
   return {
     email: userData.email,
     name: userData.name,
