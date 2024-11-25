@@ -17,6 +17,7 @@ const nameInitials = computed(() => {
 </script>
 
 <template>
+  {{ userData }}
   <div
     v-if="userData.gravatar?.length"
     class="h-10 w-10 rounded-full overflow-hidden flex items-center justify-center"

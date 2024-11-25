@@ -150,11 +150,15 @@ const inactiveFields = computed(() => {
 
   const selectedConf = matrix[realPartnerType.value] || matrix.default
 
-  console.log('selectedConf', selectedConf)
-  return props.isDeleteAble ? selectedConf.push('removeAccount') : selectedConf
+  if (props.isDeleteAble) {
+    selectedConf.push('removeAccount')
+  }
+
+  return selectedConf
 })
 
 const setGravatar = (baseavatar: any) => {
+  console.log('baseavatar', baseavatar)
   if (baseavatar && baseavatar.includes('s=40')) {
     return baseavatar.replace('s=40', 's=200')
   }
@@ -174,7 +178,7 @@ const userDataObj = computed(() => {
     timezone: userData.timezone,
     nixstatsId: userData.nixstatsId,
     threeSixtyId: userData.threeSixtyId,
-    globalUserInformation: userData.globalUserInformation
+    ...userData.globalUserInformation
   }
 })
 </script>
@@ -207,9 +211,7 @@ const userDataObj = computed(() => {
         <div
           v-if="isActiveBackground"
           class="fixed top-0 right-0 w-full max-w-[600px] @container/tsxupmain tsxUserProfile guideScreen transition-all duration-300 ease-in-out z-[10001] flex flex-col h-screen p-4">
-        <div
-          class="overflow-hidden overflow-y-auto bg-white rounded-lg shadow-lg flex-auto"
-        >
+        <div class="overflow-hidden overflow-y-auto bg-white rounded-lg shadow-lg flex-auto">
           <div class="p-4 border-b flex items-center justify-between">
             <div class="text-xl font-bold">
               {{ view === 'profile' ? t('Profile') : t('License') }}
