@@ -4,6 +4,7 @@ import 'container-query-polyfill'
 import mitt from 'mitt'
 import { onMounted } from 'vue'
 import { IProfileUser } from '@/types/general.interfaces'
+import { M } from 'vite/dist/node/types.d-aGj9QkWt'
 
 type TViewTypes = 'profile' | 'license'
 
@@ -26,10 +27,10 @@ const props = defineProps({
     type: String,
     default: ''
   },
-  inactiveFields: {
-    type: String,
-    default: ''
-  },
+  // inactiveFields: {
+  //   type: String,
+  //   default: ''
+  // },
   view: {
     type: String as () => TViewTypes,
     default: 'profile'
@@ -53,6 +54,19 @@ const props = defineProps({
   openCanvas: {
     type: Boolean,
     default: false
+  },
+  // new props
+  isLicensePartner: {
+    type: Boolean,
+    default: false
+  },
+  partnerType: {
+    type: String,
+    default: ''
+  },
+  isDeleteAble: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -60,11 +74,12 @@ const overrideBaseApiUrl = computed(() => props.overrideBaseApiUrl?.length ? pro
 
 provide('overrideBaseApiUrl', overrideBaseApiUrl.value)
 
-const userDataObj = computed<IProfileUser>(() => JSON.parse(props.userData))
-const inactiveFieldsArr = computed<string[]>(() => JSON.parse(props.inactiveFields))
+// const userDataObj = computed<IProfileUser>(() => JSON.parse(props.userData))
+// const inactiveFieldsArr = computed<string[]>(() => JSON.parse(props.inactiveFields))
 const cookies = useCookies(['locale'])
 
 const cookieLang = ref('')
+
 onMounted(() => {
   if (!cookies.get('locale')) {
     cookies.set('locale', cookies.get('i18n_redirected'), {
@@ -85,7 +100,6 @@ const uniBool = (str: string | boolean) => {
 const body = document.querySelector('body')
 const isActiveBackground = ref(false)
 const isOpenCanvas = ref(false)
-
 const canvasView = ref('')
 
 const openCanvasStyle = (view: string) => {
@@ -108,8 +122,60 @@ const closeCanvasStyle = () => {
 
 window.mitt.on('tsxUserProfile', (data: any) => {
   if (data.action === 'openCanvas' && data.view) {
-    console.log('openCanvas', data.view)
     openCanvasStyle(data.view)
+  }
+})
+
+
+const realPartnerType = computed(() => {
+  const isALicensePartner = props.isLicensePartner || false
+  if (props.partnerType === 'standalone') {
+    if (isALicensePartner) {
+      return 'standalonePartner'
+    }
+    return 'standaloneRetail'
+  }
+  return props.partnerType?.length ? props.partnerType : 'default'
+})
+
+const inactiveFields = computed(() => {
+  const matrix: { [key: string]: string[] } = {
+    default: [],
+    standaloneRetail: [],
+    standalonePartner: ['consent', 'removeAccount', 'comparePlansLink'],
+    whitelabel: ['naming', 'password', 'consent', 'removeAccount'],
+    platform: ['naming', 'password', 'consent', 'removeAccount'],
+    partner: ['consent', 'removeAccount', 'comparePlansLink']
+  }
+
+  const selectedConf = matrix[realPartnerType.value] || matrix.default
+
+  if (props.isDeleteAble) {
+    selectedConf.push('removeAccount')
+  }
+  return selectedConf
+})
+
+const setGravatar = (baseavatar: any) => {
+  if (baseavatar && baseavatar.includes('s=40')) {
+    return baseavatar.replace('s=40', 's=200')
+  }
+  return baseavatar
+}
+
+const userDataObj = computed(() => {
+  /*
+  email, name, avatar, timezone, nixstatsId, threeSixtyId, globalUserInformation
+  */
+  const userData = JSON.parse(props.userData)
+  return {
+    email: userData.email,
+    name: userData.name,
+    gravatar: setGravatar(userData.avatar),
+    timezone: userData.timezone,
+    nixstatsId: userData.nixstatsId,
+    threeSixtyId: userData.threeSixtyId,
+    globalUserInformation: userData.globalUserInformation
   }
 })
 </script>
@@ -121,7 +187,7 @@ window.mitt.on('tsxUserProfile', (data: any) => {
       <ViewProfile
         v-if="view === 'profile'"
         :user-data="userDataObj"
-        :inactive-fields="inactiveFieldsArr"
+        :inactive-fields="inactiveFields"
         :locale-saving-url="props.localeSavingUrl"
         :current-lang="cookieLang"
         :token="token"
@@ -129,7 +195,7 @@ window.mitt.on('tsxUserProfile', (data: any) => {
       <ViewLicense
         v-if="view === 'license'"
         :read-only="uniBool(readOnly)"
-        :inactive-fields="inactiveFieldsArr"
+        :inactive-fields="inactiveFields"
         />
       </div>
     </template>
@@ -166,7 +232,7 @@ window.mitt.on('tsxUserProfile', (data: any) => {
           <ViewProfile
             v-if="canvasView === 'profile'"
             :user-data="userDataObj"
-            :inactive-fields="inactiveFieldsArr"
+            :inactive-fields="inactiveFields"
             :locale-saving-url="props.localeSavingUrl"
             :current-lang="cookieLang"
             :token="token"
@@ -175,7 +241,7 @@ window.mitt.on('tsxUserProfile', (data: any) => {
             v-if="canvasView === 'license'"
             class="p-4"
             :read-only="uniBool(readOnly)"
-            :inactive-fields="inactiveFieldsArr"
+            :inactive-fields="inactiveFields"
           />
         </div>
       </div>
