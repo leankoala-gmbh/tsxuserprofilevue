@@ -158,7 +158,6 @@ const inactiveFields = computed(() => {
 })
 
 const setGravatar = (baseavatar: any) => {
-  console.log('baseavatar', baseavatar)
   if (baseavatar && baseavatar.includes('s=40')) {
     return baseavatar.replace('s=40', 's=200')
   }
@@ -170,11 +169,10 @@ const userDataObj = computed(() => {
   email, name, avatar, timezone, nixstatsId, threeSixtyId, globalUserInformation
   */
   const userData = JSON.parse(props.userData)
-  console.log('userData', userData)
   return {
     email: userData.email,
     name: userData.name,
-    gravatar: setGravatar(userData.avatar),
+    gravatar: setGravatar(userData.gravatar),
     timezone: userData.timezone,
     nixstatsId: userData.nixstatsId,
     threeSixtyId: userData.threeSixtyId,
