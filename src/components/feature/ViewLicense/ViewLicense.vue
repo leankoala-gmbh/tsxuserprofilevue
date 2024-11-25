@@ -312,6 +312,8 @@ onMounted(async () => {
     <h3 class="text-lg font-semibold mb-2">
       {{ t('upgradeAccount') }}
     </h3>
+    completeUpsellUrl: {{ completeUpsellUrl }} <br>
+    cleverbridgeUrl: {{ cleverbridgeUrl }}
     <iframe
       v-if="cleverbridgeUrl"
       :src="cleverbridgeUrl"

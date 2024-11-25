@@ -50,7 +50,7 @@ window.mitt.on('tsxUserProfile', (data: { action: string }) => {
       override-base-api-url="https://app.stage.360monitoring.com"
       base-api-url=""
       :off-canvas="true"
-      complete-upsell-url="sdfsdfs"
+      complete-upsell-url="https://app.stage.360monitoring.com/upsell/in-app-purchase-url"
     />
 
     <!-- <TSXUserProfile
