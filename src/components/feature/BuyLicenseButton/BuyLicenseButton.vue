@@ -1,7 +1,10 @@
 <script lang="ts" setup>
+
 const buyFreshLicense = () => {
-  window.mitt.emit('tsxUserProfile', {
-    action: 'buyNewLicense'
+  window.mitt.emit(props.contentScreenKey, {
+    contentUrl: props.cleverbridgeUrl,
+    type: 'content',
+    title: t('upgradeAccount')
   })
 }
 </script>

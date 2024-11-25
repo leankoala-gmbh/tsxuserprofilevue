@@ -67,6 +67,14 @@ const props = defineProps({
   isDeleteAble: {
     type: Boolean,
     default: false
+  },
+  cleverbridgeUrl: {
+    type: String,
+    default: ''
+  },
+  contentScreenKey: {
+    type: String,
+    default: 'tsxContentScreenConfig'
   }
 })
 
@@ -212,7 +220,7 @@ const userDataObj = computed(() => {
         <div class="overflow-hidden overflow-y-auto bg-white rounded-lg shadow-lg flex-auto">
           <div class="p-4 border-b flex items-center justify-between">
             <div class="text-xl font-bold">
-              {{ view === 'profile' ? t('Profile') : t('License') }}
+              {{ canvasView === 'profile' ? t('Profile') : t('License') }}
             </div>
             <button @click="closeCanvasStyle">
               <div
@@ -241,6 +249,8 @@ const userDataObj = computed(() => {
             class="p-4"
             :read-only="uniBool(readOnly)"
             :inactive-fields="inactiveFields"
+            :cleverbridge-url="cleverbridgeUrl"
+            :content-screen-key="contentScreenKey"
           />
         </div>
       </div>

@@ -9,6 +9,14 @@ const props = defineProps({
   readOnly: {
     type: Boolean,
     default: false
+  },
+  cleverbridgeUrl: {
+    type: String,
+    default: ''
+  },
+  contentScreenKey: {
+    type: String,
+    default: 'tsxContentScreenConfig'
   }
 })
 
@@ -215,7 +223,6 @@ const updateLicenseCache = (keyId: number | string, type: 'websites' | 'servers'
     licenseCache.value[keyId][`${type}NextCycle`] = count
     licenseCache.value[keyId][`${type}Diff`] = licenseCache.value[keyId][type] - count
   }
-
 }
 
 const updateLicenseData = async(e: IUpdateLicenseData) => {
@@ -226,10 +233,12 @@ const updateLicenseData = async(e: IUpdateLicenseData) => {
   }
   await getLicenseData()
 }
+
+const showLicenseDetails = ref(false)
 </script>
 
 <template>
-  <div class="viewLicense">
+  <div class="viewLicense" v-if="!showLicenseDetails">
     <template v-if="licenseData">
       <div v-for="([key, group]) in Object.entries(licenseData)" :key="key">
         <div v-if="group?.length">
@@ -277,10 +286,18 @@ const updateLicenseData = async(e: IUpdateLicenseData) => {
       <p v-else class="text-base font-semibold mb-4">
         {{ t('addNewLicenses') }}
       </p>
-      <BuyLicenseButton />
+      <GeneralButton @click="showLicenseDetails = true">
+        {{ t('buyLicense') }}
+      </GeneralButton>
     </template>
     <ApiStatus v-if="!licenseData && !readOnly && apiError">
       {{ apiError }}
     </ApiStatus>
+  </div>
+  <div v-else class="flex flex-col h-full">
+    <h3 class="text-lg font-semibold mb-2">
+      {{ t('upgradeAccount') }}
+    </h3>
+    <iframe :src="cleverbridgeUrl" frameborder="0" class="h-[calc(100%-120px)] -mx-6 w-[calc(100%+40px)]" />
   </div>
 </template>
