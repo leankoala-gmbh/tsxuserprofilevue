@@ -249,6 +249,11 @@ const getCleverbridgeUrl = async () => {
 onMounted(async () => {
   await getCleverbridgeUrl()
 })
+
+const buyNewLicense = () => {
+  window.mitt.emit('tsxUserProfile', { action: 'buyNewLicense' })
+  showLicenseDetails.value = true
+}
 </script>
 
 <template>
@@ -300,7 +305,7 @@ onMounted(async () => {
       <p v-else class="text-base font-semibold mb-4">
         {{ t('addNewLicenses') }}
       </p>
-      <GeneralButton @click="showLicenseDetails = true">
+      <GeneralButton @click="buyNewLicense">
         {{ t('buyLicense') }}
       </GeneralButton>
     </template>
