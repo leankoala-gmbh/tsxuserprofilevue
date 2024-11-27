@@ -155,6 +155,7 @@ const userDataObj = computed(() => {
   email, name, avatar, timezone, nixstatsId, threeSixtyId, globalUserInformation
   */
   const userData = JSON.parse(props.userData)
+  console.log('userData in userDataObj', userData)
   return {
     email: userData.email,
     name: userData.name,
@@ -182,6 +183,7 @@ const inactiveFields = computed(() => {
     selectedConf.push('removeAccount')
   }
 
+  console.log('selectedConf', selectedConf)
   return selectedConf
 })
 </script>
