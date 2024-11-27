@@ -4,7 +4,6 @@ import 'container-query-polyfill'
 import mitt from 'mitt'
 import { onMounted } from 'vue'
 import { IProfileUser } from '@/types/general.interfaces'
-import { M } from 'vite/dist/node/types.d-aGj9QkWt'
 
 type TViewTypes = 'profile' | 'license'
 
@@ -142,24 +141,7 @@ const realPartnerType = computed(() => {
   return props.partnerType?.length ? props.partnerType : 'default'
 })
 
-const inactiveFields = computed(() => {
-  const matrix: { [key: string]: string[] } = {
-    default: [],
-    standaloneRetail: [],
-    standalonePartner: ['consent', 'removeAccount', 'comparePlansLink'],
-    whitelabel: ['naming', 'password', 'consent', 'removeAccount'],
-    platform: ['naming', 'password', 'consent', 'removeAccount'],
-    partner: ['consent', 'removeAccount', 'comparePlansLink']
-  }
 
-  const selectedConf = matrix[realPartnerType.value] || matrix.default
-
-  if (props.isDeleteAble) {
-    selectedConf.push('removeAccount')
-  }
-
-  return selectedConf
-})
 
 const setGravatar = (baseavatar: any) => {
   if (baseavatar && baseavatar.includes('s=40')) {
@@ -183,10 +165,29 @@ const userDataObj = computed(() => {
     ...userData.globalUserInformation
   }
 })
+
+const inactiveFields = computed(() => {
+  const matrix: { [key: string]: string[] } = {
+    default: [],
+    standaloneRetail: [],
+    standalonePartner: ['consent', 'removeAccount', 'comparePlansLink'],
+    whitelabel: ['naming', 'password', 'consent', 'removeAccount'],
+    platform: ['naming', 'password', 'consent', 'removeAccount'],
+    partner: ['consent', 'removeAccount', 'comparePlansLink']
+  }
+
+  const selectedConf = matrix[realPartnerType.value] || matrix.default
+
+  if (!userDataObj.value.isDeleteAble) {
+    selectedConf.push('removeAccount')
+  }
+
+  return selectedConf
+})
 </script>
 
 <template>
-  <div class="">
+  <div>
     <template v-if="!offCanvas">
       <div class="@container/tsxupmain tsxUserProfile flex flex-col gap-2">
       <ViewProfile
