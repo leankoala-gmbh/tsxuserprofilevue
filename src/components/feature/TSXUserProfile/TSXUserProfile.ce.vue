@@ -171,19 +171,18 @@ const inactiveFields = computed(() => {
   const matrix: { [key: string]: string[] } = {
     default: [],
     standaloneRetail: [],
-    standalonePartner: ['consent', 'removeAccount', 'comparePlansLink'],
-    whitelabel: ['naming', 'password', 'consent', 'removeAccount'],
-    platform: ['naming', 'password', 'consent', 'removeAccount'],
-    partner: ['consent', 'removeAccount', 'comparePlansLink']
+    standalonePartner: ['consent', 'comparePlansLink'],
+    whitelabel: ['naming', 'password', 'consent'],
+    platform: ['naming', 'password', 'consent'],
+    partner: ['consent', 'comparePlansLink']
   }
 
   const selectedConf = matrix[realPartnerType.value] || matrix.default
 
-  if (!userDataObj.value.isDeleteAble) {
+  if (userDataObj.value.isDeleteAble) {
     selectedConf.push('removeAccount')
   }
 
-  console.log('selectedConf', selectedConf)
   return selectedConf
 })
 </script>
