@@ -3,7 +3,6 @@ import { useCookies } from '@vueuse/integrations/useCookies'
 import 'container-query-polyfill'
 import mitt from 'mitt'
 import { onMounted } from 'vue'
-import { IProfileUser } from '@/types/general.interfaces'
 
 type TViewTypes = 'profile' | 'license'
 
@@ -26,10 +25,6 @@ const props = defineProps({
     type: String,
     default: ''
   },
-  // inactiveFields: {
-  //   type: String,
-  //   default: ''
-  // },
   view: {
     type: String as () => TViewTypes,
     default: 'profile'
@@ -54,7 +49,6 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  // new props
   isLicensePartner: {
     type: Boolean,
     default: false
@@ -208,13 +202,13 @@ const inactiveFields = computed(() => {
     </template>
     <template v-else>
       <div
-        class="screenOverlay fixed z-10 h-screen w-screen bg-trans-black-08 top-0 right-0 transition-opacity duration-300 ease-in-out backdrop-filter backdrop-blur-sm"
+        class="screenOverlay fixed z-[10010] h-screen w-screen bg-trans-black-08 top-0 right-0 transition-opacity duration-300 ease-in-out backdrop-filter backdrop-blur-sm"
         :class="[isActiveBackground ? 'screenOverlay--open': '']"
       />
       <transition name="slide">
         <div
           v-if="isActiveBackground"
-          class="fixed top-0 right-0 w-full max-w-[600px] @container/tsxupmain tsxUserProfile guideScreen transition-all duration-300 ease-in-out z-[10001] flex flex-col h-screen p-4">
+          class="fixed top-0 right-0 w-full max-w-[600px] @container/tsxupmain tsxUserProfile guideScreen transition-all duration-300 ease-in-out z-[10020] flex flex-col h-screen p-4">
         <div class="overflow-hidden overflow-y-auto bg-white rounded-lg shadow-lg flex-auto">
           <div class="p-4 border-b flex items-center justify-between">
             <div class="text-xl font-bold">

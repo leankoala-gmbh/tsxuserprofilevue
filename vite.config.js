@@ -1,5 +1,3 @@
-/// <reference types="@histoire/plugin-vue/components" />
-
 import vue from '@vitejs/plugin-vue'
 import * as path from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -56,13 +54,13 @@ export default defineConfig({
     entry: path.resolve(__dirname, 'src/index.ts'),
     cssCodeSplit: false,
     rollupOptions: {
-      external: Object.keys(pkg.dependencies || {}),
+      // external: Object.keys(pkg.dependencies || {}),
       output: {
-        entryFileNames: '[name].js',
-        chunkFileNames: '[name].js',
+        entryFileNames: 'tsxUserProfile.js',
+        chunkFileNames: 'tsxUserProfile-[name].js',
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === 'style.css')
-            return '[name].css'
+            return 'tsxUserProfile.css'
           return assetInfo.name
         }
       }

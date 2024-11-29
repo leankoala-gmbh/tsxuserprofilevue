@@ -15,6 +15,6 @@ if (process.env.NODE_ENV === 'development') {
   // worker?.start()
 }
 
-
-createApp(App).mount('#app')
+const app = createApp(App)
+app.mount('#app')
 
