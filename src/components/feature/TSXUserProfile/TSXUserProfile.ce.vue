@@ -57,10 +57,10 @@ const props = defineProps({
     type: String,
     default: ''
   },
-  isDeleteAble: {
-    type: Boolean,
-    default: false
-  },
+  // isDeleteAble: {
+  //   type: Boolean,
+  //   default: false
+  // },
   completeUpsellUrl: {
     type: String,
     default: ''
@@ -71,8 +71,6 @@ const overrideBaseApiUrl = computed(() => props.overrideBaseApiUrl?.length ? pro
 
 provide('overrideBaseApiUrl', overrideBaseApiUrl.value)
 
-// const userDataObj = computed<IProfileUser>(() => JSON.parse(props.userData))
-// const inactiveFieldsArr = computed<string[]>(() => JSON.parse(props.inactiveFields))
 const cookies = useCookies(['locale'])
 
 const cookieLang = ref('')
@@ -123,21 +121,6 @@ window.mitt.on('tsxUserProfile', (data: any) => {
   }
 })
 
-
-
-const realPartnerType = computed(() => {
-  const isALicensePartner = uniBool(props.isLicensePartner) || false
-  if (props.partnerType === 'standalone') {
-    if (isALicensePartner) {
-      return 'standalonePartner'
-    }
-    return 'standaloneRetail'
-  }
-  return props.partnerType?.length ? props.partnerType : 'default'
-})
-
-
-
 const setGravatar = (baseavatar: any) => {
   if (baseavatar && baseavatar.includes('s=40')) {
     return baseavatar.replace('s=40', 's=200')
@@ -161,6 +144,18 @@ const userDataObj = computed(() => {
   }
 })
 
+const realPartnerType = computed(() => {
+  const isALicensePartner = userDataObj.value.isLicensePartner
+
+  if (props.partnerType === 'standalone') {
+    if (isALicensePartner) {
+      return 'standalonePartner'
+    }
+    return 'standaloneRetail'
+  }
+  return props.partnerType?.length ? props.partnerType : 'default'
+})
+
 const inactiveFields = computed(() => {
   const matrix: { [key: string]: string[] } = {
     default: [],
@@ -174,7 +169,7 @@ const inactiveFields = computed(() => {
   const selectedConf = matrix[realPartnerType.value] || matrix.default
 
 
-  if (!userDataObj.value.isDeleteAble) {
+  if (!userDataObj.value.isDeleteable) {
     selectedConf.push('removeAccount')
   }
 
