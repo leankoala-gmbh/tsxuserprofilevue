@@ -149,7 +149,6 @@ const userDataObj = computed(() => {
   email, name, avatar, timezone, nixstatsId, threeSixtyId, globalUserInformation
   */
   const userData = JSON.parse(props.userData)
-  console.log('userData in userDataObj', userData)
   return {
     email: userData.email,
     name: userData.name,
@@ -242,6 +241,7 @@ const inactiveFields = computed(() => {
             :read-only="uniBool(readOnly)"
             :inactive-fields="inactiveFields"
             :complete-upsell-url="completeUpsellUrl"
+            :cpanel-store-url="cpanelStoreUrl"
           />
         </div>
       </div>

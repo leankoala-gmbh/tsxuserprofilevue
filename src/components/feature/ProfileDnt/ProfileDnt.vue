@@ -13,7 +13,7 @@ watchEffect(() => localStorage.setItem(storageKey.value, savedConsent.value ? '1
 </script>
 
 <template>
-  <ProfileDetailBox class="profileDnt">
+  <ProfileDetailBox class="profileDnt" v-if="token?.length">
     <div class="profileDetail--hover m-2 rounded px-4 py-5 cursor-pointer smoothGridBox">
       <label class="flex gap-4">
         <div class="pt-1">
