@@ -124,8 +124,9 @@ window.mitt.on('tsxUserProfile', (data: any) => {
 })
 
 
+
 const realPartnerType = computed(() => {
-  const isALicensePartner = props.isLicensePartner || false
+  const isALicensePartner = uniBool(props.isLicensePartner) || false
   if (props.partnerType === 'standalone') {
     if (isALicensePartner) {
       return 'standalonePartner'
@@ -172,7 +173,8 @@ const inactiveFields = computed(() => {
 
   const selectedConf = matrix[realPartnerType.value] || matrix.default
 
-  if (userDataObj.value.isDeleteAble) {
+
+  if (!userDataObj.value.isDeleteAble) {
     selectedConf.push('removeAccount')
   }
 
@@ -182,7 +184,7 @@ const inactiveFields = computed(() => {
 
 <template>
   <div>
-    <template v-if="!offCanvas">
+    <template v-if="!uniBool(offCanvas)">
       <div class="@container/tsxupmain tsxUserProfile flex flex-col gap-2">
       <ViewProfile
         v-if="view === 'profile'"
@@ -241,7 +243,6 @@ const inactiveFields = computed(() => {
             :read-only="uniBool(readOnly)"
             :inactive-fields="inactiveFields"
             :complete-upsell-url="completeUpsellUrl"
-            :cpanel-store-url="cpanelStoreUrl"
           />
         </div>
       </div>

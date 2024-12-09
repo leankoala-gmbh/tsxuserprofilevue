@@ -54,7 +54,7 @@ window.mitt.on('tsxUserProfile', (data: { action: string }) => {
       base-api-url=""
       :off-canvas="true"
       complete-upsell-url="https://app.stage.360monitoring.com/upsell/in-app-purchase-url"
-      :is-license-partner="false"
+      :is-license-partner="true"
       partner-type="standalone"
       token="blubb"
     />
