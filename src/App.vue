@@ -18,10 +18,38 @@ const userData = {
   threeSixtyId: 'threeSixtyId',
   isOauthUser: true,
   globalUserInformation: {
-    isDeleteable: true,
+    isDeletable: true,
     isLicensePartner: false
   }
 }
+
+
+const newUserData = JSON.stringify({
+  avatar: 'https://s.gravatar.com/avatar/6dc251233c8ffb4f584efb6c46fd1ce1?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fvi.png',
+  email: 'viktor+stage@plesk.com',
+  name: 'Viktor Vogel',
+  timezone: 'Europe/Berlin',
+  nixstatsId: '66c705434facd33bbf0f19d7',
+  threeSixtyId: '',
+  globalUserInformation: {
+    access: '',
+    timezone: 'Europe/Berlin',
+    nickname: 'viktor+stage',
+    firstName: 'Viktor',
+    familyName: 'Vogel',
+    isLicensePartner: false,
+    isPartnerPlan: false,
+    isWebsiteOnly: false,
+    isTrial: false,
+    storeUrl: 'https://app.stage.360monitoring.com/n3/user/license/',
+    originStoreUrl: '',
+    isOauthUser: false,
+    isChatEnabled: true,
+    isDeletable: true,
+    isCpanelUser: false
+  }
+})
+
 const inactiveFields = []
 
 const canvasType = ref('profile')
@@ -49,7 +77,7 @@ window.mitt.on('tsxUserProfile', (data: { action: string }) => {
       License
     </div>
     <TSXUserProfile
-      :user-data="JSON.stringify(userData)"
+      :user-data="newUserData"
       :inactive-fields="JSON.stringify(inactiveFields)"
       override-base-api-url="https://app.stage.360monitoring.com"
       base-api-url=""

@@ -169,7 +169,7 @@ const inactiveFields = computed(() => {
   const selectedConf = matrix[realPartnerType.value] || matrix.default
 
 
-  if (!userDataObj.value.isDeleteable) {
+  if (!userDataObj.value.isDeletable) {
     selectedConf.push('removeAccount')
   }
 
