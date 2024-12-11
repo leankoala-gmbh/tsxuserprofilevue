@@ -133,10 +133,12 @@ const userDataObj = computed(() => {
   email, name, avatar, timezone, nixstatsId, threeSixtyId, globalUserInformation
   */
   const userData = JSON.parse(props.userData)
+  const getGravatarOrAvatar = userData.gravatar ? setGravatar(userData.gravatar) : userData.avatar
+
   return {
     email: userData.email,
     name: userData.name,
-    gravatar: setGravatar(userData.gravatar),
+    gravatar: setGravatar(getGravatarOrAvatar),
     timezone: userData.timezone,
     nixstatsId: userData.nixstatsId,
     threeSixtyId: userData.threeSixtyId,

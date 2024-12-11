@@ -1,10 +1,10 @@
 {
   "name": "@webpros/tsxuserprofilevue",
   "description": "WebComponent for managing user profile and license",
-  "main": "dist/index.js",
+  "main": "dist/tsxUserProfile.js",
   "author": "Sascha Fuchs <sascha.fuchs@webpros.com>",
   "license": "MIT",
-  "version": "3.3.37",
+  "version": "3.3.39",
   "engines": {
     "node": "18.x"
   },
