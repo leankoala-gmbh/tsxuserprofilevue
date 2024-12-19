@@ -85,7 +85,7 @@ const createCookie = (key: string, value: string) => {
 }
 
 onMounted(() => {
-  if (!cookies.get('locale')) {
+  if (!cookies.get('locale') || cookies.get('locale') === 'undefined') {
     if (cookies.get('i18n_redirected')) createCookie('locale', cookies.get('i18n_redirected'))
     else {
       createCookie('i18n_redirected', 'en')
