@@ -4,7 +4,7 @@
   "main": "dist/tsxUserProfile.js",
   "author": "Sascha Fuchs <sascha.fuchs@webpros.com>",
   "license": "MIT",
-  "version": "3.3.39",
+  "version": "3.3.40",
   "engines": {
     "node": "18.x"
   },

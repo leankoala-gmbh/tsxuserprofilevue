@@ -75,14 +75,22 @@ const cookies = useCookies(['locale'])
 
 const cookieLang = ref('')
 
+const createCookie = (key: string, value: string) => {
+  cookies.set(key, value, {
+    path: '/',
+    sameSite: 'lax',
+    maxAge: 31536000,
+    domain: `.${window.location.hostname}`
+  })
+}
+
 onMounted(() => {
   if (!cookies.get('locale')) {
-    cookies.set('locale', cookies.get('i18n_redirected'), {
-      path: '/',
-      sameSite: 'lax',
-      maxAge: 31536000,
-      domain: `.${window.location.hostname}`
-    } )
+    if (cookies.get('i18n_redirected')) createCookie('locale', cookies.get('i18n_redirected'))
+    else {
+      createCookie('i18n_redirected', 'en')
+      createCookie('locale', 'en')
+    }
   }
   cookieLang.value = cookies.get('locale')
   setLanguage(cookieLang.value)
