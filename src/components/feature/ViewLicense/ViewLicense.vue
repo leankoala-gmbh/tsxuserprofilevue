@@ -251,7 +251,6 @@ onMounted(async () => {
 })
 
 const buyNewLicense = () => {
-  window.mitt.emit('tsxUserProfile', { action: 'buyNewLicense' })
   showLicenseDetails.value = true
 }
 </script>
