@@ -250,7 +250,10 @@ onMounted(async () => {
   await getCleverbridgeUrl()
 })
 
+const emit = defineEmits(['buyANewLicense'])
+
 const buyNewLicense = () => {
+  emit('buyANewLicense')
   showLicenseDetails.value = true
 }
 </script>

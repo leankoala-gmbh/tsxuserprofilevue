@@ -185,6 +185,17 @@ const inactiveFields = computed(() => {
 
   return selectedConf
 })
+
+const scrollAbleContainer = ref(true)
+const buyANewLicense = () => {
+  scrollAbleContainer.value = false
+}
+
+watch(() => canvasView.value, () => {
+  if (canvasView.value === '') {
+    scrollAbleContainer.value = true
+  }
+}, { immediate: true })
 </script>
 
 <template>
@@ -215,7 +226,9 @@ const inactiveFields = computed(() => {
         <div
           v-if="isActiveBackground"
           class="fixed top-0 right-0 w-full max-w-[600px] @container/tsxupmain tsxUserProfile guideScreen transition-all duration-300 ease-in-out z-[10020] flex flex-col h-screen p-4">
-        <div class="overflow-hidden overflow-y-auto bg-white rounded-lg shadow-lg flex-auto">
+        <div class="overflow-hidden bg-white rounded-lg shadow-lg flex-auto"
+          :class="[scrollAbleContainer ? 'overflow-y-auto' : '']"
+        >
           <div class="p-4 border-b flex items-center justify-between">
             <div class="text-xl font-bold">
               {{ canvasView === 'profile' ? t('Profile') : t('License') }}
@@ -248,6 +261,7 @@ const inactiveFields = computed(() => {
             :read-only="uniBool(readOnly)"
             :inactive-fields="inactiveFields"
             :complete-upsell-url="completeUpsellUrl"
+            @buy-a-new-license="buyANewLicense"
           />
         </div>
       </div>
