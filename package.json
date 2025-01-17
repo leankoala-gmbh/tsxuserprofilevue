@@ -4,7 +4,7 @@
   "main": "dist/tsxUserProfile.js",
   "author": "Sascha Fuchs <sascha.fuchs@webpros.com>",
   "license": "MIT",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "engines": {
     "node": "22.x"
   },
@@ -49,6 +49,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.18.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
     "@vitejs/plugin-vue": "^5.2.1",
@@ -67,6 +69,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-vue": "^9.32.0",
+    "globals": "^15.14.0",
     "histoire": "^0.17.17",
     "jsdom": "^22.1.0",
     "msw": "^2.7.0",

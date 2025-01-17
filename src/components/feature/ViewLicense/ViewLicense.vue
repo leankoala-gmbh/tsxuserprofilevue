@@ -259,7 +259,7 @@ const buyNewLicense = () => {
 </script>
 
 <template>
-  <div class="viewLicense" v-if="!showLicenseDetails">
+  <div v-if="!showLicenseDetails" class="viewLicense">
     <template v-if="licenseData">
       <div v-for="([key, group]) in Object.entries(licenseData)" :key="key">
         <div v-if="group?.length">
@@ -323,6 +323,7 @@ const buyNewLicense = () => {
       v-if="cleverbridgeUrl"
       :src="cleverbridgeUrl"
       frameborder="0"
-      class="h-[calc(100%-120px)] -mx-6 w-[calc(100%+40px)]" />
+      class="h-[calc(100%-120px)] -mx-6 w-[calc(100%+40px)]"
+    />
   </div>
 </template>
