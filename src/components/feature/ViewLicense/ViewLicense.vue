@@ -235,6 +235,7 @@ const showLicenseDetails = ref(false)
 
 const cleverbridgeUrl = ref('')
 
+
 const getCleverbridgeUrl = async () => {
   if (!props.completeUpsellUrl) return
   try {
